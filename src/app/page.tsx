@@ -2,49 +2,96 @@ import React from 'react';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0A0A0F] text-[#f9f5fd] p-10 font-manrope">
-      <header className="mb-12 text-center">
-        <h1 className="text-5xl font-space-grotesk font-bold tracking-tighter uppercase text-transparent bg-clip-text bg-gradient-to-r from-[#B026FF] to-[#39FF14] drop-shadow-[0_0_10px_rgba(176,38,255,0.5)]">
-          Neural Canvas
-        </h1>
-      </header>
-
-      {/* Input Section */}
-      <section className="max-w-4xl mx-auto mb-16 relative">
-        <div className="absolute -inset-1 bg-gradient-to-r from-[#B026FF] to-[#39FF14] opacity-20 blur-lg rounded-full"></div>
-        <div className="relative bg-[#131319] border border-[#1f1f26] rounded-full p-2 flex items-center">
-          <input 
-            type="text" 
-            className="flex-1 bg-transparent border-none outline-none px-6 py-4 text-lg"
-            placeholder="Describe your vision..."
-            defaultValue="A cyberpunk cityscape reflecting in a wet neon street, brutalist architecture, photorealistic"
-          />
-          <button className="bg-gradient-to-r from-[#B026FF] to-[#39FF14] text-[#0A0A0F] font-bold font-space-grotesk uppercase tracking-widest px-8 py-4 rounded-full hover:shadow-[0_0_20px_rgba(57,255,20,0.5)] transition-all">
-            Generate
+    <main className="min-h-screen bg-[#050505] text-[#e5e2e1] font-inter">
+      {/* Dynamic Header */}
+      <nav className="fixed w-full z-50 bg-[#050505]/90 backdrop-blur-md border-b border-[#3b4b37]/30">
+        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+          <div className="font-space-grotesk text-2xl font-bold tracking-widest text-[#00FF41] uppercase">ai_PROT</div>
+          <div className="hidden md:flex gap-8 font-space-grotesk text-sm uppercase tracking-widest text-[#84967e]">
+            <a href="#features" className="hover:text-[#00FF41] transition-colors">Features</a>
+            <a href="#pricing" className="hover:text-[#00FF41] transition-colors">Pricing</a>
+            <a href="#docs" className="hover:text-[#00FF41] transition-colors">Docs</a>
+          </div>
+          <button className="px-6 py-2 border border-[#00FF41] text-[#00FF41] font-mono text-sm hover:bg-[#00FF41] hover:text-[#050505] shadow-[0_0_10px_rgba(0,255,65,0.2)] transition-all">
+            INITIATE
           </button>
         </div>
-        
-        {/* Style Pills */}
-        <div className="flex justify-center gap-4 mt-8 flex-wrap">
-          {['Cyberpunk', 'Synthwave', 'Photorealistic', 'Anime', '3D Render'].map((style, i) => (
-            <button key={style} className={`px-6 py-2 rounded-full border ${i === 0 ? 'border-[#39FF14] text-[#39FF14] bg-[#39FF14]/10 shadow-[0_0_10px_rgba(57,255,20,0.2)]' : 'border-[#1f1f26] text-[#ACAAB1] hover:border-[#ACAAB1]'}`}>
-              {style}
-            </button>
-          ))}
+      </nav>
+
+      {/* Hero */}
+      <section className="pt-40 pb-32 px-6 flex flex-col items-center justify-center text-center min-h-[80vh] relative overflow-hidden">
+         <div className="absolute top-0 right-1/4 w-[400px] h-[400px] bg-[#00FF41] rounded-full mix-blend-screen filter blur-[150px] opacity-10 pointer-events-none"></div>
+         <div className="inline-block px-3 py-1 bg-[#131313] border border-[#3b4b37] text-[#84967e] font-mono text-xs mb-8">SYSTEM_STATUS: SECURE</div>
+         <h1 className="text-5xl md:text-7xl font-space-grotesk font-bold tracking-tighter mb-6 uppercase leading-tight">
+           THE ULTIMATE <br/><span className="text-[#00FF41] underline decoration-[#FF003C] underline-offset-8 decoration-4">ai image gen hub</span>
+         </h1>
+         <p className="text-lg text-[#84967e] max-w-2xl mb-12">
+           Build an AI image generator dashboard. Include a large prompt input bar, style selection pills, and a masonry gallery of generated art.
+         </p>
+         <button className="px-12 py-4 bg-[#00FF41] text-[#003907] font-space-grotesk font-bold uppercase tracking-widest hover:shadow-[0_0_30px_rgba(0,255,65,0.6)] transition-all">
+           LAUNCH TERMINAL
+         </button>
+      </section>
+
+      {/* Features */}
+      <section id="features" className="py-32 bg-[#0e0e0e] px-6 relative">
+        <div className="absolute inset-0 bg-[linear-gradient(#3b4b37_1px,transparent_1px),linear-gradient(90deg,#3b4b37_1px,transparent_1px)] bg-[size:40px_40px] opacity-[0.03]"></div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <h2 className="text-3xl font-space-grotesk font-bold uppercase tracking-widest mb-16 text-[#00FF41] border-b border-[#3b4b37]/30 pb-4">Core Architecture</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="bg-[#131313] p-8 border border-[#3b4b37]/30 hover:border-[#00FF41]/50 group transition-all">
+                <div className="text-3xl font-mono text-[#FF003C] mb-6 group-hover:text-[#00FF41] transition-colors">0{i}</div>
+                <h3 className="text-xl font-space-grotesk uppercase tracking-widest mb-4">Module {i}</h3>
+                <p className="text-[#84967e] text-sm">High-performance components designed for extreme data density and rapid execution. No bloated code. Just pure function.</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Gallery */}
-      <section className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-        {[1,2,3,4,5,6].map((img, i) => (
-          <div key={i} className="break-inside-avoid bg-[#131319] p-2 border border-[#1f1f26] group relative">
-            <div className={`w-full bg-[#19191f] ${i % 2 === 0 ? 'h-64' : 'h-96'}`}></div>
-            <div className="absolute inset-0 bg-[#0A0A0F]/80 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-6 text-center backdrop-blur-sm">
-              <p className="text-sm text-[#39FF14] font-space-grotesk tracking-widest">A cyberpunk cityscape reflecting in a wet neon street...</p>
-            </div>
+      {/* Pricing */}
+      <section id="pricing" className="py-32 px-6">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="p-10 border border-[#3b4b37]/50 bg-[#0e0e0e] flex flex-col">
+            <h3 className="text-2xl font-space-grotesk uppercase tracking-widest mb-2 text-[#84967e]">Base Node</h3>
+            <div className="text-4xl font-mono mb-8 text-[#e5e2e1]">./process_batch2_landing.sh / mo</div>
+            <ul className="space-y-4 font-mono text-sm text-[#84967e] mb-10 flex-1">
+              <li>+ Standard API Limits</li>
+              <li>+ Community Support</li>
+              <li>+ 99.9% Uptime</li>
+            </ul>
+            <button className="w-full py-3 border border-[#84967e] text-[#84967e] font-mono text-sm uppercase hover:bg-[#84967e] hover:text-[#050505] transition-colors">Deploy Base</button>
           </div>
-        ))}
+          <div className="p-10 border border-[#00FF41] bg-[#131313] shadow-[0_0_30px_rgba(0,255,65,0.05)] flex flex-col relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-[#00FF41] text-[#003907] text-xs font-mono px-3 py-1 font-bold">RECOMMENDED</div>
+            <h3 className="text-2xl font-space-grotesk uppercase tracking-widest mb-2 text-[#00FF41]">Quantum Node</h3>
+            <div className="text-4xl font-mono mb-8 text-[#e5e2e1]">9 / mo</div>
+            <ul className="space-y-4 font-mono text-sm text-[#e5e2e1] mb-10 flex-1">
+              <li className="text-[#00FF41]">+ Unlimited API Calls</li>
+              <li>+ Dedicated SLA</li>
+              <li>+ Custom Integrations</li>
+              <li>+ Enterprise Security</li>
+            </ul>
+            <button className="w-full py-3 bg-[#00FF41] text-[#003907] font-mono font-bold text-sm uppercase hover:bg-white transition-colors">Deploy Quantum</button>
+          </div>
+        </div>
       </section>
+
+      {/* Massive CTA */}
+      <section className="py-32 bg-[#FF003C] text-center px-6">
+        <h2 className="text-5xl md:text-7xl font-space-grotesk font-bold text-[#050505] uppercase tracking-tighter mb-8 leading-none">
+          EXECUTE NOW.
+        </h2>
+        <button className="px-12 py-5 bg-[#050505] text-[#FF003C] font-space-grotesk font-bold text-xl uppercase tracking-widest hover:bg-white hover:text-[#050505] transition-colors shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+          INITIALIZE SEQUENCE
+        </button>
+      </section>
+      
+      {/* Footer */}
+      <footer className="py-12 border-t border-[#3b4b37]/30 text-center font-mono text-xs text-[#84967e] bg-[#0e0e0e]">
+        <p>END OF FILE. ai-image-gen-hub © 2024 | SECURE_PROTOCOL_V1.0.4</p>
+      </footer>
     </main>
   );
 }
